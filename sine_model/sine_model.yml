@@ -1,0 +1,20 @@
+# PoC for model metadata in ml_on_mcu
+---
+description: The 'hello_world' model of TinyML which approximates the y-value of the sine function for a given x-coordinate
+author: TODO
+created_at: TODO
+references:  # TODO: replace Flatbuffer and update inout data, maybe rename to hello_world.tflite
+  - https://github.com/tensorflow/tflite-micro/blob/main/tensorflow/lite/micro/examples/hello_world/hello_world.tflite
+properties:
+  quantized: false
+comment: Default (float) version of `sine_model`
+backends:  # Targets not mentioned here are supported by default!
+  tflmi:
+    supported: true  # Unsupported targets will be skipped with a warning (optional)
+    arena_size: 1024
+    builtin_ops:
+      - FullyConnected
+    # customs_ops: TODO
+  tvmrt:
+    supported: true  # (optional)
+    arena_size: 131072

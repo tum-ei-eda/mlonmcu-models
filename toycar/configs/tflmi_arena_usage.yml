@@ -1,0 +1,3 @@
+---
+arena_bytes: 16384
+# 8 kB Wwould be enough for reference kernel but not for ifx_fast ...
