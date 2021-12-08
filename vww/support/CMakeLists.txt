@@ -1,0 +1,2 @@
+ADD_LIBRARY_PULPINO(model_support STATIC mlif_override.cpp)
+TARGET_LINK_LIBRARIES(model_support PUBLIC ml_interface_base)

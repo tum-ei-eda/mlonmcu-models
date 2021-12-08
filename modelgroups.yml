@@ -1,0 +1,15 @@
+---
+tinymlperf:
+  - aww
+  - vww
+  - resnet
+  - toycar
+
+minimal:
+  - sine_model
+
+tinymlbook:
+  - hello_world
+  - micro_speech
+  - magic_wand
+  # - ?
