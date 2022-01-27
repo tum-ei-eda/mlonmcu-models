@@ -1,0 +1,50 @@
+benchmark:
+description: Object detection model trained on the COCO dataset. 
+license:
+- Creative Commons Attribution 3.0
+network:
+  file_size_bytes: 4183312
+  filename: aww.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 20cd907da3295a957338911436a6c29024ba58a8
+  provenance: https://tfhub.dev/tensorflow/lite-model/ssd_mobilenet_v1/1/default/1
+network_parameters:
+  input_nodes:
+  - description: Input RGB images (a range of 0-255 per RGB channel).
+    example_input:
+      path: ./in
+    name: input
+    shape:
+    - 1
+    - 300
+    - 300
+    - 3
+  output_nodes:
+  - description: The y1, x1, y2, x2 coordinates of the bounding boxes for each detection
+    name: TFLite_Detection_PostProcess
+    shape: []
+    test_output_path: ./out/TFLite_Detection_PostProcess
+  - description: The class of each detection
+    name: TFLite_Detection_PostProcess:1
+    shape: []
+    test_output_path: ./out/TFLite_Detection_PostProcess:1
+  - description: The probability score for each classification
+    name: TFLite_Detection_PostProcess:2
+    shape: []
+    test_output_path: ./out/TFLite_Detection_PostProcess:2
+  - description: A vector containing a number corresponding to the number of detections
+    name: TFLite_Detection_PostProcess:3
+    shape: []
+    test_output_path: ./out/TFLite_Detection_PostProcess:3
+operators:
+  TensorFlow Lite:
+  - CONV_2D
+  - DEPTHWISE_CONV_2D
+  - RESHAPE
+  - CONCATENATION
+  - LOGISTIC
+  - AVERAGE_POOL_2D
+  - TFLite_Detection_PostProcess
+paper:
