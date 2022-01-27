@@ -1,0 +1,44 @@
+benchmark:
+  :
+    top-1-accuracy: 0.92
+description: This is a fully quantized version of the MLPerf Tiny (v0.5)
+  image classification reference model.
+  The ResNet8 model is trained on the CIFAR10 dataset available at 'https://www.cs.toronto.edu/~kriz/cifar.html'
+license:
+- MLCOMMONS ASSOCIATION LICENSE
+- Apache-2.0
+network:
+  file_size_bytes: 98496
+  filename: resnet.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: cd5db935c786ddccda746ee0dde9214eac966805
+  provenance: https://github.com/mlcommons/tiny/tree/v0.5/v0.5/training/image_classification
+network_parameters:
+  input_nodes:
+  - description: Quantized RGB input image of 32x32 px
+    example_input:
+      path: ./in
+    name: input_1_int8
+    shape:
+    - 1
+    - 32
+    - 32
+    - 3
+  output_nodes:
+  - description: Resulting class probabilities
+    name: Identity_int8
+    shape:
+    - 1
+    - 10
+    test_output_path: ./out
+operators:
+  TensorFlow Lite:
+  - CONV_2D
+  - ADD
+  - AVERAGE_POOL_2D
+  - RESHAPE
+  - FULLY_CONNECTED
+  - SOFTMAX
+paper: https://arxiv.org/pdf/2106.07597.pdf

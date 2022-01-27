@@ -1,0 +1,44 @@
+benchmark:
+  Visual Wake Words:
+    top-1-accuracy: 0.80
+description: This is a fully quantized version of the visual wake word model which is
+  part of the MLPerf™ Tiny Deep Learning Benchmarks for Embedded Devices (v0.5)
+  The model was trained on the 'Visual Wake Words Dataset' dataset.
+license:
+- MLCOMMONS ASSOCIATION LICENSE
+- Apache-2.0
+network:
+  file_size_bytes: 333288
+  filename: vww.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: ccfa03d8dabac224bb38676a619d8733f728b45c
+  provenance: https://github.com/mlcommons/tiny/tree/v0.5/v0.5/training/visual_wake_words
+network_parameters:
+  input_nodes:
+  - description: A 96x96 pixel RGB input image (quantized)
+    example_input:
+      path: ./in
+    name: input_1_int8
+    shape:
+    - 1
+    - 96
+    - 96
+    - 3
+  output_nodes:
+  - description: Per-class confidence across the two classes (0=no person present, 1=person present).
+    name: Identity_int8
+    shape:
+    - 1
+    - 2
+    test_output_path: ./out
+operators:
+  TensorFlow Lite:
+  - CONV_2D
+  - DEPTHWISE_CONV_2D
+  - AVERAGE_POOL_2D
+  - RESHAPE
+  - FULLY_CONNECTED
+  - SOFTMAX
+paper: https://arxiv.org/pdf/2106.07597.pdf
