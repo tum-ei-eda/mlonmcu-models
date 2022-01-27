@@ -1,0 +1,54 @@
+description: This is a test model containing three add operators. It can be used to check if multiple-outputs are supported.
+license:
+- MIT
+network:
+  file_size_bytes: 828
+  filename: model_with_multiple_outputs.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 991c5b63bc3c753063e3d38e1b878e322380ec99
+  provenance: https://github.com/PhilippvK/tensorflow-operators-cmake/tree/main/models/model_with_multiple_outputs
+network_parameters:
+  input_nodes:
+  - description: Input data (x)
+    example_input:
+      path: ./input/x/
+    name: x
+    shape:
+    - 1
+    - 2
+  - description: Input data (y)
+    example_input:
+      path: ./input/y/
+    name: y
+    shape:
+    - 1
+    - 2
+  - description: Input data (z)
+    example_input:
+      path: ./input/y/
+    name: y
+    shape:
+    - 1
+    - 2
+  output_nodes:
+  - description: Output data (u=x+y)
+    name: Identity
+    shape:
+    - 1
+    - 2
+  - description: Output data (v=y+z)
+    name: Identity_1
+    shape:
+    - 1
+    - 2
+  - description: Output data (w=x+z)
+    name: Identity_2
+    shape:
+    - 1
+    - 2
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - ADD

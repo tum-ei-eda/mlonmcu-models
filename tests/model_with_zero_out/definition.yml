@@ -1,0 +1,30 @@
+description: This is a test model just containing a custom ZERO_OUT operator. It can be used to check if custom operators are supported.
+license:
+- MIT
+network:
+  file_size_bytes: 512
+  filename: model_with_zero_out.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 5fd830f7c218577718f1a9d9b6eedbde394a7b06
+  provenance: https://github.com/PhilippvK/tensorflow-operators-cmake/tree/main/models/model_with_zero_out
+network_parameters:
+  input_nodes:
+  - description: Input data (x)
+    example_input:
+      path: ./input/
+    name: x
+    shape:
+    - 1
+    - 10
+  output_nodes:
+  - description: Output data
+    name: Identity
+    shape:
+    - 1
+    - 10
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - ZERO_OUT

@@ -1,0 +1,54 @@
+description: This contains only the last operator of the SSD MobileNet model to test the support for complex custom operators.
+  This version of the model contains no dynamic shapes in is therfore compatible with TFLM and TVM.
+license:
+- MIT
+network:
+  file_size_bytes: 9608
+  filename: model_with_detection_postprocess_static.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: ff259010f87bb8d44302800a1e54ffe6d2c6b84e
+  provenance: Applied custom script on ssd.tflite (Not published yet)
+network_parameters:
+  input_nodes:
+  - description: ?
+    example_input:
+      path: ./input/squeeze/
+    name: Squeeze
+    shape:
+    - 1
+    - 1917
+    - 4
+  - description: Convert scores
+    example_input:
+      path: ./input/convert_scores/
+    name: convert_scores
+    shape:
+    - 1
+    - 1917
+    - 91
+  output_nodes:
+  - description: The y1, x1, y2, x2 coordinates of the bounding boxes for each detection
+    name: TFLite_Detection_PostProcess
+    shape:
+    - 10
+    test_output_path: ./output/TFLite_Detection_PostProcess/
+  - description: The class of each detection
+    name: TFLite_Detection_PostProcess:1
+    shape:
+    - 10
+    test_output_path: ./output/TFLite_Detection_PostProcess:1/
+  - description: The probability score for each classification
+    name: TFLite_Detection_PostProcess:2
+    shape:
+    - 10
+    test_output_path: ./output/TFLite_Detection_PostProcess:2/
+  - description: A vector containing a number corresponding to the number of detections
+    name: TFLite_Detection_PostProcess:3
+    shape:
+    - 10
+    test_output_path: ./output/TFLite_Detection_PostProcess:3/
+operators:
+  TensorFlow Lite:
+  - TFLite_Detection_PostProcess

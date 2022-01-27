@@ -1,0 +1,38 @@
+description: This is a test model containing a few REDUCE_MAX operators as they can be used to find bugs with the rarely used scratch buffer feature.
+license:
+- MIT
+network:
+  file_size_bytes: 1184
+  filename: model_with_multiple_scratch_buffers.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 4283457a4a3baef016753711b69d9211e2082a55
+  provenance: https://github.com/PhilippvK/tensorflow-operators-cmake/tree/main/models/model_with_multiple_scratch_buffers
+network_parameters:
+  input_nodes:
+  - description: Input data (x)
+    example_input:
+      path: ./input/x/
+    name: x
+    shape:
+    - 1
+    - 2
+  - description: Input data (y)
+    example_input:
+      path: ./input/y/
+    name: y
+    shape:
+    - 1
+    - 2
+  output_nodes:
+  - description: Output data (z)
+    name: Identity
+    shape:
+    - 1
+    - 2
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - REDUCE_MAX
+  - ADD
