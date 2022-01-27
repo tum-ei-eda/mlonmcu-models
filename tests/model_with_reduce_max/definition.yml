@@ -1,0 +1,30 @@
+description: This is a test model containing a single REDUCE_MAX operator as it is the only builtin op using the rarely used scratch buffer feature.
+license:
+- MIT
+network:
+  file_size_bytes: 588
+  filename: model_with_multiple_reduce_max.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 72a2cb57a23b77fc4c67e72b01656c544745a79e
+  provenance: https://github.com/PhilippvK/tensorflow-operators-cmake/tree/main/models/model_with_reduce_max
+network_parameters:
+  input_nodes:
+  - description: Input data (x)
+    example_input:
+      path: ./input/x/
+    name: x
+    shape:
+    - 1
+    - 2
+  output_nodes:
+  - description: Output data (z)
+    name: Identity
+    shape:
+    - 1
+    - 2
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - REDUCE_MAX

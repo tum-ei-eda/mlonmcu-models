@@ -1,0 +1,32 @@
+description: This contains only the LOGISTIC operator of the SSD MobileNet model to test this type of operators.
+license:
+- MIT
+network:
+  file_size_bytes: 1176
+  filename: model_with_detection_postprocess_static.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 2a373f45fd8e56d707ce24b8dc5df04e6da37fcf
+  provenance: Applied custom script on ssd.tflite (Not published yet)
+network_parameters:
+  input_nodes:
+  - description: ?
+    example_input:
+      path: ./input/
+    name: concat_1
+    shape:
+    - 1
+    - 1917
+    - 91
+  output_nodes:
+  - description: Convert scores
+    name: convert_scores
+    shape:
+    - 1
+    - 1917
+    - 91
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - TFLite_Detection_PostProcess

@@ -1,0 +1,30 @@
+description: This is a test model just containing a single REVERSE_SEQUENCE operator. It will be used for comparisons with the custom version of the same operator.
+license:
+- MIT
+network:
+  file_size_bytes: 636
+  filename: model_with_reverse_sequence.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: c00c8fcf3d9140f6337c510c1a42010509584010
+  provenance: https://github.com/PhilippvK/tensorflow-operators-cmake/tree/main/models/model_with_reverse_sequence
+network_parameters:
+  input_nodes:
+  - description: Input data (x)
+    example_input:
+      path: ./input/
+    name: x
+    shape:
+    - 4
+    - 8
+  output_nodes:
+  - description: Output data
+    name: Identity
+    shape:
+    - 4
+    - 8
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - REVERSE_SEQUENCE
