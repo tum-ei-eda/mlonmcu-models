@@ -20,7 +20,7 @@ network_parameters:
   input_nodes:
   - description: Fully quantized log mel spectrogram frame (n_mels: 128, frames : 5, n_fft: 1024, hop_length: 512, power: 2.0)
     example_input:
-      path: ./in
+      path: ./input/
     name: input_1
     shape:
     - 1
@@ -31,7 +31,7 @@ network_parameters:
     shape:
     - 1
     - 640
-    test_output_path: ./out
+    test_output_path: ./output/
 operators:
   TensorFlow Lite:
   - FULLY_CONNECTED
