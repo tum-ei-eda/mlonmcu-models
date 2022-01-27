@@ -1,0 +1,38 @@
+benchmark:
+  DCASE 2020 Task 2 Slide rail:
+    AUC: 0.85
+description: This is the MLPerf Tiny (v0.5) anomaly reference model, based on the baseline system
+  for the DCASE 2020 Challenge Task 2 "Unsupervised Detection of Anomalous Sounds for Machine Condition Monitoring".
+  http://dcase.community/challenge2020/task-unsupervised-detection-of-anomalous-sounds.
+  The model was trained on the 'ToyADMOS' dataset.
+  The description of the original challenge is available at http://dcase.community/challenge2020/task-unsupervised-detection-of-anomalous-sounds
+license:
+- MIT
+network:
+  file_size_bytes: 276976
+  filename: toycar.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 403b8c5ac37a4923688c6099dcf5a0acc4cf0b3b
+  provenance: https://github.com/mlcommons/tiny/tree/v0.5/v0.5/training/anomaly_detection
+network_parameters:
+  input_nodes:
+  - description: Fully quantized log mel spectrogram frame (n_mels: 128, frames : 5, n_fft: 1024, hop_length: 512, power: 2.0)
+    example_input:
+      path: ./in
+    name: input_1
+    shape:
+    - 1
+    - 640
+  output_nodes:
+  - description: Unkown (TODO)
+    name: Identity
+    shape:
+    - 1
+    - 640
+    test_output_path: ./out
+operators:
+  TensorFlow Lite:
+  - FULLY_CONNECTED
+paper: https://arxiv.org/pdf/2106.07597.pdf

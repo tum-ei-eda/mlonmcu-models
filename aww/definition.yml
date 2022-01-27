@@ -1,0 +1,44 @@
+benchmark:
+  Google Speech Commands test set:
+    top-1-accuracy: 0.90
+description: This is a fully quantized version of the Small vocabulary keyword spotting
+  model which is part of the MLPerf™ Tiny Deep Learning Benchmarks for Embedded Devices (v0.5)
+  The model was trained on the 'Google Speech Commands' dataset.
+license:
+- MLCOMMONS ASSOCIATION LICENSE
+- Apache-2.0
+network:
+  file_size_bytes: 59648
+  filename: aww.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 42d0e2fe2a3bd7ec112aee06a3b4364e58b43965
+  provenance: https://github.com/mlcommons/tiny/tree/v0.5/v0.5/training/keyword_spotting
+network_parameters:
+  input_nodes:
+  - description: A one second audio clip, converted to a 2D MFCC computed from a speech
+      frame of length 40ms and stride 20ms.
+    example_input:
+      path: ./in
+    name: input
+    shape:
+    - 1
+    - 49
+    - 10
+    - 1
+  output_nodes:
+  - description: The probability on 12 keywords.
+    name: Identity
+    shape:
+    - 1
+    - 12
+    test_output_path: ./out
+operators:
+  TensorFlow Lite:
+  - CONV_2D
+  - DEPTHWISE_CONV_2D
+  - AVERAGE_POOL_2D
+  - RESHAPE
+  - SOFTMAX
+paper: https://arxiv.org/pdf/2106.07597.pdf
