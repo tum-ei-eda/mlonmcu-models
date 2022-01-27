@@ -36,3 +36,8 @@ operators:
   TensorFlow Lite:
   - FULLY_CONNECTED
 paper: https://arxiv.org/pdf/2106.07597.pdf
+backends:
+  tflmi:
+    arena_size: 16384  # 2^14 bytes = 16 kB
+  tvmrt:
+    arena_size: 1048576  # 2^20 bytes = 1 MB
