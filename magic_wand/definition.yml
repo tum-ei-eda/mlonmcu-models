@@ -39,3 +39,8 @@ operators:
   - FULLY_CONNECTED
   - SOFTMAX
 paper:
+backends:
+  tflmi:
+    arena_size: 16384  # 2^14 bytes = 16 kB
+  tvmrt:
+    arena_size: 262144  # 2^18 bytes = 256 kB

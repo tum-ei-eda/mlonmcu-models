@@ -42,3 +42,8 @@ operators:
   - FULLY_CONNECTED
   - SOFTMAX
 paper: https://arxiv.org/pdf/2106.07597.pdf
+backends:
+  tflmi:
+    arena_size: 131072  # 2^17 bytes = 128 kB
+  tvmrt:
+    arena_size: 4194304  # 2^22 bytes = 4 MB
