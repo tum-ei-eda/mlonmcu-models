@@ -14,7 +14,7 @@ network_parameters:
   input_nodes:
   - description: Input RGB images (a range of 0-255 per RGB channel).
     example_input:
-      path: ./in
+      path: ./input/
     name: input
     shape:
     - 1
@@ -25,19 +25,19 @@ network_parameters:
   - description: The y1, x1, y2, x2 coordinates of the bounding boxes for each detection
     name: TFLite_Detection_PostProcess
     shape: []
-    test_output_path: ./out/TFLite_Detection_PostProcess
+    test_output_path: ./output/TFLite_Detection_PostProcess/
   - description: The class of each detection
     name: TFLite_Detection_PostProcess:1
     shape: []
-    test_output_path: ./out/TFLite_Detection_PostProcess:1
+    test_output_path: ./output/TFLite_Detection_PostProcess:1/
   - description: The probability score for each classification
     name: TFLite_Detection_PostProcess:2
     shape: []
-    test_output_path: ./out/TFLite_Detection_PostProcess:2
+    test_output_path: ./output/TFLite_Detection_PostProcess:2/
   - description: A vector containing a number corresponding to the number of detections
     name: TFLite_Detection_PostProcess:3
     shape: []
-    test_output_path: ./out/TFLite_Detection_PostProcess:3
+    test_output_path: ./output/TFLite_Detection_PostProcess:3/
 operators:
   TensorFlow Lite:
   - CONV_2D

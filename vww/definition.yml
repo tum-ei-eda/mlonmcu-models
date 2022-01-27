@@ -19,7 +19,7 @@ network_parameters:
   input_nodes:
   - description: A 96x96 pixel RGB input image (quantized)
     example_input:
-      path: ./in
+      path: ./input/
     name: input_1_int8
     shape:
     - 1
@@ -32,7 +32,7 @@ network_parameters:
     shape:
     - 1
     - 2
-    test_output_path: ./out
+    test_output_path: ./output/
 operators:
   TensorFlow Lite:
   - CONV_2D

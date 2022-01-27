@@ -20,7 +20,7 @@ network_parameters:
   - description: A one second audio clip, converted to a 2D MFCC computed from a speech
       frame of length 40ms and stride 20ms.
     example_input:
-      path: ./in
+      path: ./input/
     name: input
     shape:
     - 1
@@ -33,7 +33,7 @@ network_parameters:
     shape:
     - 1
     - 12
-    test_output_path: ./out
+    test_output_path: ./output/
 operators:
   TensorFlow Lite:
   - CONV_2D
