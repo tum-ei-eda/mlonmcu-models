@@ -1,0 +1,32 @@
+benchmark:
+description: This is a floating point version of the 'hello_world' model from the TinyML book and the TFLM examples
+license:
+- Apache-2.0
+network:
+  file_size_bytes: 3120
+  filename: sine_model.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: f0b74650e31c252c8bca7e27d34a01017bba248b
+  provenance: https://people.linaro.org/~tom.gall/sine_model.tflite
+network_parameters:
+  input_nodes:
+  - description: The floating point x coordinate
+    example_input:
+      path: ./input/
+    name: dense_2_input
+    shape:
+    - 1
+    - 1
+  output_nodes:
+  - description: Resulting approximation for y=sin(x)
+    name: Identity
+    shape:
+    - 1
+    - 1
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - FULLY_CONNECTED
+paper:
