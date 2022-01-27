@@ -1,0 +1,41 @@
+benchmark:
+description: Floiting point version of TensorFlow Lite model that classifies gestures based on accelerometer data.
+  Three magic gestures were chosen, and data were collected from 7 different people.
+  Some random long movement sequences were collected and divided into shorter pieces,
+  which made up "negative" data along with some other automatically generated random data.
+  The dataset can be downloaded from https://download.tensorflow.org/models/tflite/magic_wand/data.tar.gz
+license:
+- Apache-2.0
+network:
+  file_size_bytes: 19616
+  filename: magic_wand.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: fc9a77ca2a469d0308329706c24fbf7ba3fe4769
+  provenance: https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/micro/examples/magic_wand
+network_parameters:
+  input_nodes:
+  - description: Time series of accelerometer data for the x/y/z coordinates
+    example_input:
+      path: ./input/
+    name: conv2d_input
+    shape:
+    - 1
+    - 128
+    - 3
+    - 1
+  output_nodes:
+  - description: Resulting label probabilities (wing/ring/slope/-)
+    name: Identity
+    shape:
+    - 1
+    - 4
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - RESHAPE
+  - DEPTHWISE_CONV_2D
+  - FULLY_CONNECTED
+  - SOFTMAX
+paper:

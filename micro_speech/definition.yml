@@ -1,0 +1,36 @@
+benchmark:
+description: This is the fully quantized int8 version of the 'micro_speech model' found in the TFLM examples.
+  The model was trained on the 'Google Speech Commands' dataset.
+license:
+- Apache-2.0
+network:
+  file_size_bytes: 18712
+  filename: micro_speech.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 3f6eef11c34bd9af7940b71fd55477876bef76cd
+  provenance: https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/micro/examples/micro_speech
+network_parameters:
+  input_nodes:
+  - description: A spectrogram sample (flattened from 1x49x49x1)
+    example_input:
+      path: ./input/
+    name: Reshape_1
+    shape:
+    - 1
+    - 1960
+  output_nodes:
+  - description: Resulting label probabilities (silence/unknown/yes/no)
+    name: labels_softmax
+    shape:
+    - 1
+    - 4
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite:
+  - RESHAPE
+  - DEPTHWISE_CONV_2D
+  - FULLY_CONNECTED
+  - SOFTMAX
+paper:
