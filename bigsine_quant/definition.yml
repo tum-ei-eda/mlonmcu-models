@@ -1,0 +1,9 @@
+operators:
+  TensorFlow Lite: &ops
+  - FULLY_CONNECTED
+backends:
+  tflmi:
+    arena_size: 2048  # 2^10 bytes = 2 kB
+    ops: *ops
+  tvmrt:
+    arena_bytes: 262144  # 2^18 bytes = 256 kB

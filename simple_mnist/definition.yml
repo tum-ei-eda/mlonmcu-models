@@ -1,0 +1,12 @@
+operators:
+  TensorFlow Lite: &ops
+  - DEPTHWISE_CONV_2D
+  - MAX_POOL_2D
+  - RESHAPE
+  - FULLY_CONNECTED
+backends:
+  tflmi:
+    arena_size: 16384  # 2^14 bytes = 16 kB
+    ops: *ops
+  tvmrt:
+    arena_bytes: 131072  # 2^17 bytes = 128 kB
