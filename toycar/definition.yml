@@ -33,11 +33,12 @@ network_parameters:
     - 640
     test_output_path: ./output/
 operators:
-  TensorFlow Lite:
+  TensorFlow Lite: &ops
   - FULLY_CONNECTED
 paper: https://arxiv.org/pdf/2106.07597.pdf
 backends:
   tflmi:
     arena_size: 16384  # 2^14 bytes = 16 kB
+    ops: *ops
   tvmrt:
     arena_size: 1048576  # 2^20 bytes = 1 MB

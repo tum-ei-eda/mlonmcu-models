@@ -28,7 +28,7 @@ network_parameters:
     - 4
     test_output_path: ./output/
 operators:
-  TensorFlow Lite:
+  TensorFlow Lite: &ops
   - RESHAPE
   - DEPTHWISE_CONV_2D
   - FULLY_CONNECTED
@@ -37,5 +37,6 @@ paper:
 backends:
   tflmi:
     arena_size: 8192  # 2^13 bytes = 8 kB
+    ops: *ops
   tvmrt:
     arena_size: 262144  # 2^18 bytes = 256 kB

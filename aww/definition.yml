@@ -35,7 +35,7 @@ network_parameters:
     - 12
     test_output_path: ./output/
 operators:
-  TensorFlow Lite:
+  TensorFlow Lite: &ops
   - CONV_2D
   - DEPTHWISE_CONV_2D
   - AVERAGE_POOL_2D
@@ -45,5 +45,6 @@ paper: https://arxiv.org/pdf/2106.07597.pdf
 backends:
   tflmi:
     arena_size: 32768  # 2^15 bytes = 32 kB
+    ops: *ops
   tvmrt:
     arena_size: 1048576  # 2^20 bytes = 1 MB

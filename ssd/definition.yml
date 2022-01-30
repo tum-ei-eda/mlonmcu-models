@@ -39,7 +39,7 @@ network_parameters:
     shape: []
     test_output_path: ./output/TFLite_Detection_PostProcess:3/
 operators:
-  TensorFlow Lite:
+  TensorFlow Lite: &ops
   - CONV_2D
   - DEPTHWISE_CONV_2D
   - RESHAPE
@@ -48,3 +48,7 @@ operators:
   - AVERAGE_POOL_2D
   - TFLite_Detection_PostProcess
 paper:
+backends:
+  tflmi:
+    arena_size: 33554432  # 2^25 bytes = 32 MB
+    ops: *ops
