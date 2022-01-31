@@ -1,5 +1,5 @@
 benchmark:
-  :
+  MLPerf Tiny v0.5:
     top-1-accuracy: 0.92
 description: This is a fully quantized version of the MLPerf Tiny (v0.5)
   image classification reference model.

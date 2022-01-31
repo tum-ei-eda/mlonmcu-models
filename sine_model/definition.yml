@@ -27,7 +27,7 @@ network_parameters:
     - 1
     test_output_path: ./output/
 operators:
-  TensorFlow Lite:
+  TensorFlow Lite: &ops
   - FULLY_CONNECTED
 paper:
 backends:
