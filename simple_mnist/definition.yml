@@ -1,9 +1,44 @@
+benchmark:
+  MNIST dataset:
+    training-accuracy: 86.02%
+description: This is a floating point model capable of detecting handwritting digits on TinyML devices.
+  The model was trained on the 'THE MNIST DATABASE of handwritten digits'.
+license:
+- MIT
+network:
+  file_size_bytes: 3828
+  filename: simple_mnist.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 6e436376c42efd9b59f3e7562f0e70fabda8f7c5
+  provenance: https://github.com/alxhoff/TinyML-MNIST-model
+network_parameters:
+  input_nodes:
+  - description: A grayscale (single color channel) bitmap of 28x28 px.
+    example_input:
+      path: ./input/
+    name: conv2d_2_input
+    shape:
+    - 1
+    - 28
+    - 28
+    - 1
+  output_nodes:
+  - description: The probability of the digits 0-9.
+    name: Identity
+    shape:
+    - 1
+    - 10
+    test_output_path: ./output/
 operators:
   TensorFlow Lite: &ops
   - DEPTHWISE_CONV_2D
   - MAX_POOL_2D
   - RESHAPE
   - FULLY_CONNECTED
+  - SOFTMAX
+paper:
 backends:
   tflmi:
     arena_size: 16384  # 2^14 bytes = 16 kB
