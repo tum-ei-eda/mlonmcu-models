@@ -18,7 +18,7 @@ network:
   provenance: https://github.com/mlcommons/tiny/tree/v0.5/v0.5/training/anomaly_detection
 network_parameters:
   input_nodes:
-  - description: Fully quantized log mel spectrogram frame (n_mels: 128, frames : 5, n_fft: 1024, hop_length: 512, power: 2.0)
+  - description: "Fully quantized log mel spectrogram frame (n_mels: 128, frames : 5, n_fft: 1024, hop_length: 512, power: 2.0)"
     example_input:
       path: ./input/
     name: input_1
