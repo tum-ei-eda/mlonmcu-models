@@ -14,8 +14,8 @@ network:
 network_parameters:
   input_nodes:
   - description: A spectrogram sample (flattened from 1x49x49x1)
-    example_input:
-      path: ./input/
+    # example_input:
+    #   path: ./input/
     name: Reshape_1
     shape:
     - 1
@@ -26,11 +26,12 @@ network_parameters:
     shape:
     - 1
     - 4
-    test_output_path: ./output/
+    # test_output_path: ./output/
 operators:
   TensorFlow Lite: &ops
   - RESHAPE
   - DEPTHWISE_CONV_2D
+  - CONV_2D
   - FULLY_CONNECTED
   - SOFTMAX
 paper:
