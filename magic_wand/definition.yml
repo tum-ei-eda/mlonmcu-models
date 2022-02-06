@@ -36,7 +36,9 @@ operators:
   TensorFlow Lite: &ops
   - RESHAPE
   - DEPTHWISE_CONV_2D
+  - CONV_2D
   - FULLY_CONNECTED
+  - MAX_POOL_2D
   - SOFTMAX
 paper:
 backends:

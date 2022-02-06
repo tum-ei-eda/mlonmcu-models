@@ -40,6 +40,7 @@ operators:
   - DEPTHWISE_CONV_2D
   - AVERAGE_POOL_2D
   - RESHAPE
+  - FULLY_CONNECTED
   - SOFTMAX
 paper: https://arxiv.org/pdf/2106.07597.pdf
 backends:

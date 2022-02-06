@@ -16,8 +16,8 @@ network:
 network_parameters:
   input_nodes:
   - description: A grayscale (single color channel) bitmap of 28x28 px.
-    example_input:
-      path: ./input/
+    # example_input:
+    #   path: ./input/
     name: conv2d_2_input
     shape:
     - 1
@@ -30,7 +30,7 @@ network_parameters:
     shape:
     - 1
     - 10
-    test_output_path: ./output/
+    # test_output_path: ./output/
 operators:
   TensorFlow Lite: &ops
   - DEPTHWISE_CONV_2D
