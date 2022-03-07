@@ -1,5 +1,6 @@
 #include "quantize.h"
 #include "printing.h"
+#include "exit.h"
 
 
 extern "C" {
@@ -18,7 +19,7 @@ void mlif_process_input(const void *in_data, size_t in_size, void *model_input_p
     if (in_size / 4 != model_input_sz)
     {
         DBGPRINTF("MLIF: Wrong input size!\n");
-        exit(1);
+        exit(EXIT_MLIF_INVALID_SIZE);
     }
 
     for (int i = 0; i < model_input_sz; i++)
@@ -34,7 +35,7 @@ void mlif_process_output(void *model_output_ptr, size_t model_output_sz, const v
     if (model_output_sz != 640)
     {
         DBGPRINTF("MLIF: Wrong output size!\n");
-        exit(1);
+        exit(EXIT_MLIF_INVALID_SIZE);
     }
 
     float out_scale = 0.36449846625328064;
@@ -55,6 +56,6 @@ void mlif_process_output(void *model_output_ptr, size_t model_output_sz, const v
     if (diffsum != expected)
     {
         DBGPRINTF("MLIF: Wrong output! Expected %f\n", expected);
-        exit(1);
+        exit(EXIT_MLIF_MISSMATCH);
     }
 }
