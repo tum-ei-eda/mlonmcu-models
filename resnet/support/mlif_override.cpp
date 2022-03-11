@@ -1,6 +1,6 @@
 #include "quantize.h"
 #include "printing.h"
-#include "exit.h.h"
+#include "exit.h"
 #include <cstring>
 
 
