@@ -10,7 +10,7 @@ network:
   hash:
     algorithm: sha1
     value: 935f6dacb4a4e84c0e465a4d0ded8d35006910bb
-  provenance: https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/micro/examples/micro_speech
+  provenance:
 network_parameters:
   input_nodes:
   - description: A spectrogram sample (flattened from 1x49x49x1)
@@ -31,7 +31,6 @@ operators:
   TensorFlow Lite: &ops
   - RESHAPE
   - DEPTHWISE_CONV_2D
-  - CONV_2D
   - FULLY_CONNECTED
   - SOFTMAX
 paper:
