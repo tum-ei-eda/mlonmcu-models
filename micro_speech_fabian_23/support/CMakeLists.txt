@@ -1,0 +1,2 @@
+COMMON_ADD_LIBRARY(model_support STATIC mlif_override.cpp)
+TARGET_LINK_LIBRARIES(model_support PUBLIC ml_interface_base)
