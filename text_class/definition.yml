@@ -1,0 +1,33 @@
+description: Text sentiment analysis model as provided by a TensorFlow tutorial.
+license:
+- Apache-2.0
+network:
+  filename: text_class.tflite
+  framework: TensorFlow Lite
+  provenance: https://www.tensorflow.org/lite/examples/text_classification/overview
+network_parameters:
+  input_nodes:
+  - description: Embedding vectors representing the input text to be classified. The
+      input need to be converted from raw text to embedding vectors using the attached
+      dictionary file.
+    example_input:
+      path: ./input/
+    name: input_5
+    shape:
+    - 1
+    - 256
+  output_nodes:
+  - description: Probabilities of the labels negative and positive respectively.
+    name: Identity
+    shape:
+    - 1
+    - 2
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite: &ops
+  - GATHER
+  - MEAN
+  - FULLY_CONNECTED
+  - SOFTMAX
+paper: https://aclanthology.org/P11-1015/
+
