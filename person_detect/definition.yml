@@ -1,0 +1,45 @@
+benchmark:
+description: Neural network to recognize people in images. Used as benchmark in the tflite-micro project.
+  The model was trained on the 'Google Speech Commands' dataset.
+license:
+- Apache-2.0
+network:
+  file_size_bytes: 300568
+  filename: person_detect.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: bcafcaa99d2eaf089f0ca25d66f56a2177e93f76
+  provenance: https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/micro/examples/person_detection
+network_parameters:
+  input_nodes:
+  - description: A grayscale input image of size 96 px x 96 px
+    example_input:
+      path: ./input/
+    name: input
+    shape:
+    - 1
+    - 96
+    - 96
+    - 1
+  output_nodes:
+  - description: The model output (probabilities of no person/person)
+    name: Reshape_1
+    shape:
+    - 1
+    - 2
+    test_output_path: ./output/
+operators:
+  TensorFlow Lite: &ops
+  - RESHAPE
+  - DEPTHWISE_CONV_2D
+  - CONV_2D
+  - AVERAGE_POOL_2D
+  - SOFTMAX
+paper:
+backends:
+  tflmi:
+    arena_size: 131072  # 2^17 bytes = 128 kB
+    ops: *ops
+  tvmrt:
+    arena_size: 33554432  # 2^25 bytes = 32 MB

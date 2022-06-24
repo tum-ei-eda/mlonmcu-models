@@ -1,0 +1,2 @@
+0: person
+1: no_person
