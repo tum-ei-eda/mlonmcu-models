@@ -9,6 +9,6 @@ minimal:
   - sine_model
 
 tinymlbook:
-  - hello_world
+  - sine_model  # hello_world
   - micro_speech
   - magic_wand
