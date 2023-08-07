@@ -138,3 +138,15 @@ mathis:
   - saxpy16
   - matmul8
   - matmul16
+
+mibench:
+  - telecomm/FFT
+  - telecomm/CRC32
+  - automotive/susan
+  - automotive/basicmath
+  - automotive/bitcount
+  - automotive/qsort
+  - security/sha
+  - security/rijndael
+  - network/dijkstra
+  - office/stringsearch
