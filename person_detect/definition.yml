@@ -43,3 +43,5 @@ backends:
     ops: *ops
   tvmrt:
     arena_size: 33554432  # 2^25 bytes = 32 MB
+  tvmllvm:
+    arena_size: 33554432  # 2^25 bytes = 32 MB
