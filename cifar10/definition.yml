@@ -10,3 +10,5 @@ backends:
     ops: *ops
   tvmrt:
     arena_bytes: 1048576  # 2^20 bytes = 1 MB
+  tvmllvm:
+    arena_bytes: 1048576  # 2^20 bytes = 1 MB
