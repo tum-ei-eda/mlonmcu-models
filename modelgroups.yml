@@ -137,7 +137,15 @@ mathis:
   - saxpy8
   - saxpy16
   - matmul8
+  - matmul8_
   - matmul16
+  - matmul16_
+  - matmulT8
+  - matmulT16
+  - transposed_matmul8
+  - transposed_matmul8_
+  - transposed_matmul16
+  - transposed_matmul16_
 
 mibench:
   - telecomm/FFT
