@@ -26,6 +26,7 @@ network_parameters:
     - 32
     - 32
     - 3
+    dtype: int8
   output_nodes:
   - description: Resulting class probabilities
     name: Identity_int8
@@ -33,6 +34,7 @@ network_parameters:
     - 1
     - 10
     test_output_path: ./output/
+    dtype: float32  # TODO: change to int8 after replacing ref data with quantized results
 operators:
   TensorFlow Lite: &ops
   - CONV_2D
