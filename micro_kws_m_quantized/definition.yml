@@ -6,7 +6,6 @@ operators:
   - RESHAPE
   - FULLY_CONNECTED
   - SOFTMAX
-  tflmi.ops=RESHAPE,CONV_2D,FULLY_CONNECTED,MAX_POOL_2D,AVERAGE_POOL_2D,SOFTMAX
 paper: https://arxiv.org/pdf/2106.07597.pdf
 backends:
   tflmi:
