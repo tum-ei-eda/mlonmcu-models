@@ -9,7 +9,7 @@ operators:
 paper: https://arxiv.org/pdf/2106.07597.pdf
 backends:
   tflmi:
-    # arena_size: 32768  # 2^15 bytes = 32 kB
+    arena_size: 65536  # 2^16 bytes = 64 kB
     ops: *ops
   # tvmrt:
   #   arena_size: 1048576  # 2^20 bytes = 1 MB
