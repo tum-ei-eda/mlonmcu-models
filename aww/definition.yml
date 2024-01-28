@@ -21,12 +21,13 @@ network_parameters:
       frame of length 40ms and stride 20ms.
     example_input:
       path: ./input/
-    name: input
+    name: input_1
     shape:
     - 1
     - 49
     - 10
     - 1
+    dtype: int8
   output_nodes:
   - description: The probability on 12 keywords.
     name: Identity
@@ -34,6 +35,11 @@ network_parameters:
     - 1
     - 12
     test_output_path: ./output/
+    dtype: int8  # TODO: change to int8 after replacing ref data with quantized results
+    dequantize:
+      scale: 0.00390625
+      zero_shift: -128
+      dtype: float32
 operators:
   TensorFlow Lite: &ops
   - CONV_2D

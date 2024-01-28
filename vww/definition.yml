@@ -26,6 +26,11 @@ network_parameters:
     - 96
     - 96
     - 3
+    dtype: int8
+    quantize:
+      scale: 0.0039215688593685627
+      zero_shift: -128
+      dtype: float32
   output_nodes:
   - description: Per-class confidence across the two classes (0=no person present, 1=person present).
     name: Identity_int8
@@ -33,6 +38,11 @@ network_parameters:
     - 1
     - 2
     test_output_path: ./output/
+    dtype: int8  # TODO: change to int8 after replacing ref data with quantized results
+    dequantize:
+      scale: 0.00390625
+      zero_shift: -128
+      dtype: float32
 operators:
   TensorFlow Lite: &ops
   - CONV_2D

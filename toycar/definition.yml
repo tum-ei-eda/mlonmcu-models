@@ -25,6 +25,11 @@ network_parameters:
     shape:
     - 1
     - 640
+    dtype: int8
+    quantize:
+      scale: 0.39101523160934448
+      zero_shift: 89
+      dtype: float32
   output_nodes:
   - description: Unkown (TODO)
     name: Identity
@@ -32,6 +37,11 @@ network_parameters:
     - 1
     - 640
     test_output_path: ./output/
+    dtype: int8
+    dequantize:
+      scale: 0.36449846625328064
+      zero_shift: 96
+      dtype: float32
 operators:
   TensorFlow Lite: &ops
   - FULLY_CONNECTED
