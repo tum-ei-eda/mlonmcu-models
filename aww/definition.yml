@@ -28,10 +28,12 @@ network_parameters:
     - 10
     - 1
     dtype: int8
+    range: [-128, 127]  # range: null
     quantize:
       scale: 0.00390625
       zero_shift: -128
       dtype: float32
+      range: [-128.0, 32.0]
   output_nodes:
   - description: The probability on 12 keywords.
     name: Identity
