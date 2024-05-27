@@ -30,10 +30,11 @@ network_parameters:
     dtype: int8
     range: [-128, 127]  # range: null
     quantize:
-      scale: 0.00390625
-      zero_shift: -128
+      scale: 0.5748363733291626
+      zero_shift: 87
       dtype: float32
-      range: [-128.0, 32.0]
+      # range: [-123.5697250366211, 23.013561248779297]
+      range: [-123.569725, 24.57589]
   output_nodes:
   - description: The probability on 12 keywords.
     name: Identity
@@ -42,7 +43,7 @@ network_parameters:
     - 12
     test_output_path: ./output/
     dtype: int8  # TODO: change to int8 after replacing ref data with quantized results
-    range: null
+    range: [-128, 127]  # range: null
     dequantize:
       scale: 0.00390625
       zero_shift: -128
