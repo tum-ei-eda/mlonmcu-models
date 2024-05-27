@@ -27,6 +27,7 @@ network_parameters:
     - 32
     - 3
     dtype: int8
+    range: [-128, 127]  # range: null
   output_nodes:
   - description: Resulting class probabilities
     name: Identity_int8
@@ -35,10 +36,12 @@ network_parameters:
     - 10
     test_output_path: ./output/
     dtype: int8  # TODO: change to int8 after replacing ref data with quantized results
+    range: [-128, 127]  # range: null
     dequantize:
       scale: 0.00390625
       zero_shift: -128
       dtype: float32
+      range: [0.0, 1.0]
 operators:
   TensorFlow Lite: &ops
   - CONV_2D
