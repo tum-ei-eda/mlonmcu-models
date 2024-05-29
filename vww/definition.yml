@@ -39,7 +39,8 @@ network_parameters:
     shape:
     - 1
     - 2
-    test_output_path: ./output/
+    test_output_path: ./output_tflite/
+    test_labels_file: ./output_labels.csv
     dtype: int8  # TODO: change to int8 after replacing ref data with quantized results
     range: [-128, 127]  # range: null
     dequantize:
