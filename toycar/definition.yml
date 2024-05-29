@@ -38,7 +38,8 @@ network_parameters:
     shape:
     - 1
     - 640
-    test_output_path: ./output/
+    test_output_path: ./output_tflite/
+    test_labels_file: ./output_labels.csv
     dtype: int8
     range: [-128, 127]  # range: null
     dequantize:
