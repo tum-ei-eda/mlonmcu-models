@@ -19,6 +19,7 @@ network_parameters:
     shape:
     - 1
     - 1
+    dtype: float32
   output_nodes:
   - description: Resulting approximation for y=sin(x)
     name: Identity
@@ -26,6 +27,7 @@ network_parameters:
     - 1
     - 1
     test_output_path: ./output/
+    dtype: float32
 operators:
   TensorFlow Lite: &ops
   - FULLY_CONNECTED

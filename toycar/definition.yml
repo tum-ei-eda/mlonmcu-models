@@ -25,13 +25,28 @@ network_parameters:
     shape:
     - 1
     - 640
+    dtype: int8
+    range: [-128, 127]  # range: null
+    quantize:
+      scale: 0.39101523160934448
+      zero_shift: 89
+      dtype: float32
+      range: [-84.79798126220703, 14.910901069641113]
   output_nodes:
   - description: Unkown (TODO)
     name: Identity
     shape:
     - 1
     - 640
-    test_output_path: ./output/
+    test_output_path: ./output_tflite/
+    test_labels_file: ./output_labels.csv
+    dtype: int8
+    range: [-128, 127]  # range: null
+    dequantize:
+      scale: 0.36449846625328064
+      zero_shift: 96
+      dtype: float32
+      range: [-81.59371185302734, 11.35339641571045]
 operators:
   TensorFlow Lite: &ops
   - FULLY_CONNECTED

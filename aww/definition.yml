@@ -27,13 +27,29 @@ network_parameters:
     - 49
     - 10
     - 1
+    dtype: int8
+    range: [-128, 127]  # range: null
+    quantize:
+      scale: 0.5748363733291626
+      zero_shift: 87
+      dtype: float32
+      range: [-123.5697250366211, 23.013561248779297]
+      # range: [-123.569725, 30.193174]
   output_nodes:
   - description: The probability on 12 keywords.
     name: Identity
     shape:
     - 1
     - 12
-    test_output_path: ./output/
+    test_output_path: ./output_tflite/
+    test_labels_file: ./output_labels.csv
+    dtype: int8  # TODO: change to int8 after replacing ref data with quantized results
+    range: [-128, 127]  # range: null
+    dequantize:
+      scale: 0.00390625
+      zero_shift: -128
+      dtype: float32
+      range: [0.0, 1.0]
 operators:
   TensorFlow Lite: &ops
   - CONV_2D
