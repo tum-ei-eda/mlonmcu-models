@@ -12,7 +12,7 @@ network_parameters:
       dictionary file.
     example_input:
       path: ./input/
-    name: input_5
+    name: embedding_input
     shape:
     - 1
     - 256
@@ -30,4 +30,3 @@ operators:
   - FULLY_CONNECTED
   - SOFTMAX
 paper: https://aclanthology.org/P11-1015/
-
