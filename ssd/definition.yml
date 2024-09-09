@@ -1,5 +1,5 @@
 benchmark:
-description: Object detection model trained on the COCO dataset. 
+description: Object detection model trained on the COCO dataset.
 license:
 - Creative Commons Attribution 3.0
 network:
@@ -15,7 +15,7 @@ network_parameters:
   - description: Input RGB images (a range of 0-255 per RGB channel).
     example_input:
       path: ./input/
-    name: input
+    name: normalized_input_image_tensor
     shape:
     - 1
     - 300
