@@ -37,6 +37,39 @@ embench:
   - nbody
   - sglib-combined
 
+embench_iot:
+  - aha-mont64
+  - crc32
+  - depthconv
+  - edn
+  - huffbench
+  - matmult-int
+  - md5sum
+  - nettle-aes
+  - nettle-sha256
+  - nsichneu
+  - picojpeg
+  - qrduino
+  - sglib-combined
+  - slre
+  - statemate
+  - tarfind
+  - ud
+  - wikisort
+  - xgboost
+
+embench_dsp:
+  - biquad_cascade_df2T_f32_sos3_n1
+  - biquad_cascade_df2T_f32_sos3_n128
+  - dct4_2048_f32
+  - dct4_512_f32
+  - fir_f32_taps256_n1
+  - fir_f32_taps256_n128
+  - lms_f32_taps256_n1
+  - lms_f32_taps256_n128
+  - rfft2048_f32
+  - rfft512_f32
+
 taclebench:
   - app/powerwindow
   - app/lift
