@@ -1,0 +1,61 @@
+---
+benchmark:
+  MLPerf Tiny v0.5:
+    top-1-accuracy: 0.92
+description: This is a FP32 version of the MLPerf Tiny (v0.7)
+  large image classification reference model.
+  The ResNet8 model is trained on the CIFAR10 dataset available at
+  'https://www.cs.toronto.edu/~kriz/cifar.html'
+license:
+  - MLCOMMONS ASSOCIATION LICENSE
+  - Apache-2.0
+network:
+  file_size_bytes: 1929208
+  filename: resnet_large_fp32.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: 40e10d2b10e0b13555751a44c32357a169998d74
+  provenance: https://github.com/mlcommons/tiny/tree/v0.7/benchmark/training/image_classification
+network_parameters:
+  input_nodes:
+    - description: Quantized RGB input image of 32x32 px
+      # example_input:
+      #   path: ./input/
+      # name: input_5
+      name: serving_default_input_5:0
+      shape:
+        - 1
+        - 32
+        - 32
+        - 3
+      dtype: float32
+      range: [-1.0, 1.0]  # TODO: check?
+  output_nodes:
+    - description: Resulting class probabilities
+      name: dense_4
+      shape:
+        - 1
+        - 10
+      # test_output_path: ./output_tflite/
+      # test_labels_file: ./output_labels.csv
+      dtype: float32
+      range: [0.0, 1.0]  # TODO: check?
+operators:
+  TensorFlow Lite: &ops
+    - CONV_2D
+    - ADD
+    - AVERAGE_POOL_2D
+    - RESHAPE
+    - FULLY_CONNECTED
+    - SOFTMAX
+paper: https://arxiv.org/pdf/2106.07597.pdf
+backends:
+  tflmi:
+    arena_size: 1048576  # 2^20 bytes = 1 MB
+    ops: *ops
+  tvmrt:
+    # Graph executor arena max usage after model invocation: 784000 bytes
+    arena_size: 1048576  # 2^20 bytes = 1 MB
+  tvmlvm:
+    arena_size: 1048576  # 2^20 bytes = 1 MB
