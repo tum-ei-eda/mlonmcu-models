@@ -1,0 +1,3 @@
+COMMON_ADD_LIBRARY(model_support STATIC mlif_override.cpp)
+TARGET_LINK_LIBRARIES(model_support PUBLIC ml_interface_base mlifio)
+TARGET_INCLUDE_DIRECTORIES(model_support PUBLIC $<TARGET_PROPERTY:mlifio,INCLUDE_DIRECTORIES>)

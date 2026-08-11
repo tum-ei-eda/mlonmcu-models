@@ -1,0 +1,71 @@
+---
+benchmark:
+  MLPerf Tiny v0.5:
+    top-1-accuracy: 0.92
+description: This is a fully quantized version of the MLPerf Tiny (v0.7)
+  large image classification reference model.
+  The ResNet8 model is trained on the CIFAR10 dataset available at
+  'https://www.cs.toronto.edu/~kriz/cifar.html'
+license:
+  - MLCOMMONS ASSOCIATION LICENSE
+  - Apache-2.0
+network:
+  file_size_bytes: 512024
+  filename: resnet_large_int8.tflite
+  framework: TensorFlow Lite
+  hash:
+    algorithm: sha1
+    value: bf4dc85c54a3d8f75fe4a1a47e54e68668747633
+  provenance: https://github.com/mlcommons/tiny/tree/v0.7/benchmark/training/image_classification
+network_parameters:
+  input_nodes:
+    - description: Quantized RGB input image of 32x32 px
+      # example_input:
+      #   path: ./input/
+      # name: input_5
+      name: serving_default_input_5:0
+      shape:
+        - 1
+        - 32
+        - 32
+        - 3
+      dtype: int8
+      range: [-128, 127]  # range: null
+      quantize:
+        scale: 1.0
+        zero_shift: -128
+        dtype: int8
+        range: [-128, 127]
+  output_nodes:
+    - description: Resulting class probabilities
+      name: dense_4
+      shape:
+        - 1
+        - 10
+      # test_output_path: ./output_tflite/
+      # test_labels_file: ./output_labels.csv
+      dtype: int8  # TODO: change to int8 after replacing ref data with quant
+      range: [-128, 127]  # range: null
+      dequantize:
+        scale: 0.00390625
+        zero_shift: -128
+        dtype: float32
+        range: [0.0, 1.0]
+operators:
+  TensorFlow Lite: &ops
+    - CONV_2D
+    - ADD
+    - AVERAGE_POOL_2D
+    - RESHAPE
+    - FULLY_CONNECTED
+    - SOFTMAX
+paper: https://arxiv.org/pdf/2106.07597.pdf
+backends:
+  tflmi:
+    arena_size: 524288  # 2^19 bytes = 512 kB
+    ops: *ops
+  tvmrt:
+    # Graph executor arena max usage after model invocation: 397632 bytes
+    arena_size: 524288  # 2^19 bytes = 512 kB
+  tvmlvm:
+    arena_size: 524288  # 2^19 bytes = 512 kB
